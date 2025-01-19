@@ -45,7 +45,7 @@ function partychart({data, year = 2024} : PartyChartProps) {
     <Card>
       <CardHeader>
           <CardTitle className='text-2xl'>Gastos Por Partido</CardTitle>
-            <CardDescription> Dados de 2024</CardDescription>
+            <CardDescription> Dados de {year}</CardDescription>
         </CardHeader>
         <CardContent>
             <ChartContainer  config={{}} className='min-h-[900px] w-full'> 

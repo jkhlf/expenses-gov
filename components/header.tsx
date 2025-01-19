@@ -1,8 +1,18 @@
 import { Calendar, FlagIcon, Landmark, MapIcon } from 'lucide-react'
-import Image from 'next/image'
-import React from 'react'
+import { useSearchParams } from 'next/navigation';
+import React, { use, useCallback } from 'react'
 
 function header() {
+  const searchParams = useSearchParams();
+
+const createQueryString = useCallback((name: string, value: string) => { 
+  const params = new URLSearchParams( searchParams.toString() );
+  params.set(name, value);
+  return params.toString();
+}, [searchParams]);
+
+
+
   return (
      <header className='mb-12 flex justify-center items-center lg:flex-row flex-col gap-10 lg:justify-between'>
         <div className='flex items-center gap-4'>  
