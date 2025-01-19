@@ -26,6 +26,13 @@ function CustomToolTip({ active, payload, label }: any): JSX.Element | null {
 function ufchart({data, year = 2024} : UfChartProps) {
 
   let chartData =  data.find((item) => Number(item.year) === year)?.data
+  // if(!chartData) return null;
+  
+  // const average =  {
+  //   uf: 'Média',
+  //   total_expenses: chartData?.reduce((acc, curr) => acc + curr.total_expenses, 0) / chartData?.length
+  // }
+  // chartData.push(average)
   chartData= chartData?.sort((a,b) => b.total_expenses - a.total_expenses);
 
   return (
