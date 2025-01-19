@@ -22,7 +22,7 @@ const partyData = await partyRes.json();
 
   return (
     <main className="container mx-auto py-10">
-      < Header />
+      < Header year={year} />
       {expensesType === 'uf' && <Ufchart year={year} data={ufData}/>}
       {expensesType === 'party' && <PartyChart year={year} data={partyData}/>}
       
