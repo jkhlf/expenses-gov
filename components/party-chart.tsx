@@ -49,7 +49,7 @@ function partychart({data, year = 2024} : PartyChartProps) {
         </CardHeader>
         <CardContent>
             <ChartContainer  config={{}} className='min-h-[900px] w-full'> 
-              <BarChart data={partyChartData} layout='vertical' >
+              <BarChart data={partyChartData} layout='vertical' margin={{left:32}} >
                 <YAxis dataKey="party" type='category' tickLine={false} axisLine={false}  className='font-semibold'/>
                 <XAxis type='number' dataKey='total_per_senator'/>
                 <ChartTooltip content={CustomToolTip}/>
