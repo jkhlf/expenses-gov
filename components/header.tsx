@@ -7,7 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadio
 import { DropdownMenuRadioGroup } from '@radix-ui/react-dropdown-menu';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
-function Header({year} : {year: number}) {
+function Header({ year }: { year: number }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -41,15 +41,15 @@ function Header({year} : {year: number}) {
           <p>
             Gastos dos senadores Total por estado (UF) -{' '}
             <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger className="underline decoration-dotted">
-                CEAPS
-              </TooltipTrigger>
-              <TooltipContent>
-                Cota para o exercício da atividade Parlamentar – CEAPS<br />
-                CEAPS é o valor destinado ao ressarcimento de despesas dos senadores, efetuadas no exercício da atividade parlamentar.
-              </TooltipContent>
-            </Tooltip>
+              <Tooltip>
+                <TooltipTrigger className="underline decoration-dotted">
+                  CEAPS
+                </TooltipTrigger>
+                <TooltipContent>
+                  Cota para o exercício da atividade Parlamentar – CEAPS<br />
+                  CEAPS é o valor destinado ao ressarcimento de despesas dos senadores, efetuadas no exercício da atividade parlamentar.
+                </TooltipContent>
+              </Tooltip>
             </TooltipProvider>
           </p>
         </div>
@@ -59,17 +59,17 @@ function Header({year} : {year: number}) {
         <div className='border-r-2 pr-6 border-black/10 '>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-            <button className='flex flex-col items-center justify-center text-xs gap-2 border-black/10 border-2 px-4 py-3 rounded-lg hover:border-violet-400'> <Calendar/> Calendario </button>
+              <button className='flex flex-col items-center justify-center text-xs gap-2 border-black/10 border-2 px-4 py-3 rounded-lg hover:border-violet-400'> <Calendar /> Calendario </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>Escolha o ano</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuRadioGroup value={year.toString()} onValueChange={(value) => router.push(`${pathname}?${createQueryString('year', value)}`)}>
-              <DropdownMenuRadioItem value={'2024'}>2024</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value={'2023'}>2023</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value={'2022'}>2022</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value={'2021'}>2021</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value={'2020'}>2020</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value={'2024'}>2024</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value={'2023'}>2023</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value={'2022'}>2022</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value={'2021'}>2021</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value={'2020'}>2020</DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -77,6 +77,11 @@ function Header({year} : {year: number}) {
         <div className='flex gap-4'>
           <NavButton icon={MapIcon} label="Gastos por UF" queryType="uf" />
           <NavButton icon={FlagIcon} label="Gastos por Partido" queryType="party" />
+          <NavButton
+            icon={Landmark}
+            label="Lista de Senadores"
+            queryType="senators"
+          />
         </div>
       </nav>
     </header>
