@@ -3,7 +3,6 @@ import React, { JSX } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { ChartContainer, ChartTooltip } from './ui/chart'
 import { Bar, BarChart, LabelList, XAxis, YAxis } from 'recharts'
-import { cn } from '@/lib/utils';
 
 type PartyChartProps = {
   year?: number,
