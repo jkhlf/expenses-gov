@@ -3,7 +3,7 @@ import { Calendar, FlagIcon, Landmark, MapIcon } from 'lucide-react'
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
 import { DropdownMenuRadioGroup } from '@radix-ui/react-dropdown-menu';
 
 function Header({year} : {year: number}) {
@@ -44,7 +44,7 @@ function Header({year} : {year: number}) {
       <nav className='flex gap-6'>
         <div className='border-r-2 pr-6 border-black/10 '>
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
             <button className='flex flex-col items-center justify-center text-xs gap-2 border-black/10 border-2 px-4 py-3 rounded-lg hover:border-violet-400'> <Calendar/> Calendario </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
