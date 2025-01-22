@@ -1,11 +1,12 @@
 'use client';
-import { Calendar, FlagIcon, Landmark, MapIcon } from 'lucide-react'
+
+import React from 'react';
+import { Calendar, FlagIcon, Landmark, MapIcon, Wallet } from 'lucide-react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import React from 'react'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { DropdownMenuRadioGroup } from '@radix-ui/react-dropdown-menu';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 function Header({ year }: { year: number }) {
   const router = useRouter();
@@ -59,7 +60,7 @@ function Header({ year }: { year: number }) {
         <div className='border-r-2 pr-6 border-black/10 '>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className='flex flex-col items-center justify-center text-xs gap-2 border-black/10 border-2 px-4 py-3 rounded-lg hover:border-violet-400'> <Calendar /> Calendario </button>
+              <button className='flex flex-col items-center justify-center text-xs gap-2 border-black/10 border-2 px-4 py-3 rounded-lg hover:border-violet-400'> <Calendar /> Calendário </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>Escolha o ano</DropdownMenuLabel>
@@ -74,18 +75,45 @@ function Header({ year }: { year: number }) {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
+
+        <div className="border-r-2 pr-6 border-black/10">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className='flex flex-col items-center justify-center text-xs gap-2 border-black/10 border-2 px-4 py-3 rounded-lg hover:border-violet-400'> <FlagIcon /> Partido </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Escolha o Partido</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup
+                value={searchParams.get('party') || 'MDB'}
+                onValueChange={(value) => router.push(`${pathname}?${createQueryString('party', value)}`)}
+              >
+                <DropdownMenuRadioItem value="MDB">MDB</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PSDB">PSDB</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PSB">PSB</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="REPUBLICANOS">REPUBLICANOS</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PSD">PSD</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="UNIÃO">UNIÃO</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PT">PT</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PL">PL</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PODEMOS">PODEMOS</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PP">PP</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="NOVO">NOVO</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="PDT">PDT</DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+
         <div className='flex gap-4'>
           <NavButton icon={MapIcon} label="Gastos por UF" queryType="uf" />
           <NavButton icon={FlagIcon} label="Gastos por Partido" queryType="party" />
-          <NavButton
-            icon={Landmark}
-            label="Lista de Senadores"
-            queryType="senators"
-          />
+          <NavButton icon={Landmark} label="Lista de Senadores" queryType="senators" />
+          <NavButton icon={Wallet} label="Gastos por Categorias" queryType="categories" />
         </div>
       </nav>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
