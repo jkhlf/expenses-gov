@@ -51,7 +51,7 @@ function CategoryChart({ data, party, year }: CategoryChartProps) {
         <Card>
             <CardHeader>
                 <CardTitle className="text-2xl">Gastos por Categoria</CardTitle>
-                <CardDescription>Dados para o partido {party} no ano de {year}</CardDescription>
+                <CardDescription>Dados para o partido {party} no ano de {year}. Troque o partido e o ano como preferir acima.</CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={{}}>

@@ -36,18 +36,17 @@ function Header({ year }: { year: number }) {
   return (
     <header className='mb-12 flex justify-center items-center lg:flex-row flex-col gap-10 lg:justify-between'>
       <div className='flex items-center gap-4'>
-        <Landmark height={40} width={40} />
+        <a href="/"> <Landmark height={40} width={40} /> </a>
         <div className="flex flex-col">
           <h1 className='text-3xl font-bold mb-1'>Gastos dos Senadores</h1>
           <p>
-            Gastos dos senadores Total por estado (UF) -{' '}
+            Explore os gastos dos senadores com a cota parlamentar e a  
             <TooltipProvider>
               <Tooltip>
-                <TooltipTrigger className="underline decoration-dotted">
-                  CEAPS
+                <TooltipTrigger className="underline decoration-dotted ml-1">
+                   CEAPS.
                 </TooltipTrigger>
                 <TooltipContent>
-                  Cota para o exercício da atividade Parlamentar – CEAPS<br />
                   CEAPS é o valor destinado ao ressarcimento de despesas dos senadores, efetuadas no exercício da atividade parlamentar.
                 </TooltipContent>
               </Tooltip>

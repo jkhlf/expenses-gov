@@ -4,9 +4,15 @@ type SenatorListProps = {
   data: {
     id: number;
     name: string;
-    party: string;
+    full_name: string;
+    gender: string;
     UF: string;
     avatar_url: string | null; // Podemos permitir que a URL seja nula
+    homepage: string;
+    email: string;
+    party: string;
+    is_titular: number;
+    is_active: number;
   }[];
 };
 
@@ -34,20 +40,34 @@ export default function SenatorList({ data }: SenatorListProps) {
                 </div>
               )}
             </div>
+
             {/* Nome do Senador */}
             <h3 className="font-semibold text-lg text-center mb-2">{senator.name}</h3>
-            {/* Partido e UF */}
-            <div className="text-sm text-center text-gray-600">
-              <p><strong>Partido:</strong> {senator.party}</p>
-              <p><strong>UF:</strong> {senator.UF}</p>
+            <p className="text-sm text-center text-gray-600 italic mb-2">{senator.full_name}</p>
+
+            {/* Partido, UF e Gênero */}
+            <div className="text-sm text-center text-gray-600 mb-2">
+              <p><span className="font-semibold">Partido:</span> {senator.party}</p>
+              <p><span className="font-semibold">UF:</span> {senator.UF}</p>
+              <p><span className="font-semibold">Gênero:</span> {senator.gender}</p>
+              <p><span className="font-semibold">Ativo: </span>{senator.is_active ? 'Sim' : 'Não'}</p>
             </div>
 
-            {/* Tooltip com mais informações, acessível */}
-            <div
-              className="absolute top-2 right-2 bg-violet-500 text-white text-xs px-2 py-1 rounded-md opacity-0 hover:opacity-100 transition-opacity"
-              role="tooltip"
-            >
-              Clique para mais informações
+            {/* Email */}
+            <div className="text-sm text-center text-gray-600 mb-4">
+              <p><span className="font-semibold">Email:</span> <a href={`mailto:${senator.email}`} className="text-blue-500 underline">{senator.email}</a></p>
+            </div>
+
+            {/* Botão para Homepage */}
+            <div className="text-center">
+              <a
+                href={senator.homepage}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-violet-500 text-white py-2 px-2 rounded-md hover:bg-violet-600 transition"
+              >
+                Ver Perfil
+              </a>
             </div>
           </li>
         ))}
