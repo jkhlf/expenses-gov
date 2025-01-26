@@ -11,7 +11,7 @@ Endpoints da API:
 - [Gastos agregados por partido](https://docs.apis.codante.io/gastos-senadores#gastos-agregados-por-partido) (`/summary/by-party`)
 - [Gastos agregados por UF](https://docs.apis.codante.io/gastos-senadores#gastos-agregados-por-uf) (`/summary/by-uf`)
 - [Avatar e listas de senadores](https://apis.codante.io/senator-expenses/senators)(`/senator-expenses/senators`)
-- [Gastos por Categoria de cada Partido](  curl -G https://apis.codante.io/senator-expenses/parties/MDB/expenses)(`/senator-expenses/parties/${selectedParty}/expenses?year=${year}`)
+- [Gastos por Categoria de cada Partido](https://apis.codante.io/senator-expenses/parties/MDB/expenses)(`/senator-expenses/parties/${selectedParty}/expenses?year=${year}`)
 
 
 # Creditos
