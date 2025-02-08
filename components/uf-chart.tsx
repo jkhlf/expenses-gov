@@ -3,14 +3,8 @@ import React, { JSX } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { ChartContainer, ChartTooltip } from './ui/chart'
 import { Bar, BarChart, LabelList, XAxis, YAxis } from 'recharts'
+import { UfChartProps } from '@/types';
 
-type UfChartProps = {
-  year?: number,
-  data: {
-    year: string,
-    data: {uf:string, total_expenses:number}[]
-  } []
-}
 
 function CustomToolTip({ active, payload, label }: any): JSX.Element | null { 
   if (active && payload && payload.length) {

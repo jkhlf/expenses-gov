@@ -1,20 +1,6 @@
 'use client';
 
-type SenatorListProps = {
-  data: {
-    id: number;
-    name: string;
-    full_name: string;
-    gender: string;
-    UF: string;
-    avatar_url: string | null; // Podemos permitir que a URL seja nula
-    homepage: string;
-    email: string;
-    party: string;
-    is_titular: number;
-    is_active: number;
-  }[];
-};
+import { SenatorListProps } from "@/types";
 
 export default function SenatorList({ data }: SenatorListProps) {
   return (
