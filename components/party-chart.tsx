@@ -3,18 +3,7 @@ import React, { JSX } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { ChartContainer, ChartTooltip } from './ui/chart'
 import { Bar, BarChart, LabelList, XAxis, YAxis } from 'recharts'
-
-type PartyChartProps = {
-  year?: number,
-  data: {
-    year(year: any): unknown;
-    data: { 
-       party: string,
-       senator_ids: string, 
-       total_expenses: number, 
-       total_per_senator: number } [];
-  }[];
-}
+import { PartyChartProps } from '@/types'
 
 function CustomToolTip({ active, payload, label }: any): JSX.Element | null { 
   if (active && payload && payload.length) {

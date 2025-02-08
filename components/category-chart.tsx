@@ -4,15 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer } from '@/components/ui/chart';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-type CategoryChartProps = {
-    data: {
-        expense_category: string;
-        amount: string;
-    }[];
-    party: string;
-    year: number;
-};
+import { CategoryChartProps } from '@/types';
 
 function CategoryChart({ data, party, year }: CategoryChartProps) {
     // Filtra os dados para o ano e partido selecionados
