@@ -6,9 +6,11 @@ Um projeto de visualização de dados construído com Next.js e Shadcn UI para a
 
 - 📊 Gráficos interativos mostrando despesas por partido político
 - 🗺️ Distribuição geográfica das despesas por estado (UF)
-- 👥 Lista detalhada de senadores com avatares
+- 👥 Lista detalhada de senadores com avatares e filtros
 - 💰 Despesas por categoria para cada partido
-- 🎨 UI moderna com componentes Shadcn
+- 🎨 UI moderna com componentes personalizados
+- 📱 Design responsivo para mobile e desktop
+- 🔍 Busca e filtragem de senadores
 
 ## A API utilizada
 
@@ -28,6 +30,23 @@ Endpoints da API:
 - [TailwindCSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-# Creditos
+## Estrutura do Projeto
+
+```
+/app                    # App Router da aplicação Next.js
+  /page.tsx             # Página principal que gerencia visualizações
+/components             # Componentes reutilizáveis
+  /ui                   # Componentes de UI básicos
+  /uf-chart.tsx         # Visualização de gastos por UF
+  /party-chart.tsx      # Visualização de gastos por partido
+  /senator-list.tsx     # Lista de senadores com filtros
+  /category-chart.tsx   # Gastos por categoria
+  /header.tsx           # Cabeçalho da aplicação
+/lib                    # Funções utilitárias
+/types                  # Definições de tipos TypeScript
+```
+
+
+# Créditos
 
 https://github.com/robertotcestari & https://github.com/codante-io
