@@ -42,3 +42,15 @@ export type CategoryChartProps = {
     party: string;
     year: number;
 };
+
+export type HeaderStatsProps = {
+    ufData?: UfChartProps['data'];
+    partyData?: PartyChartProps['data'];
+    year: number;
+    totalSenators: number;
+};
+
+export type FetcherError = Error & {
+    info?: any;
+    status?: number;
+};
