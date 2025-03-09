@@ -12,7 +12,6 @@ import { Suspense } from "react";
 
 export const dynamic = 'force-dynamic';
 
-// Component to handle data fetching with error handling
 async function DataFetcher({
   fetch_function,
   fallback_data,
@@ -36,7 +35,6 @@ export default async function Home({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   try {
-    // Await the searchParams promise
     const searchParams = await searchParamsPromise;
     
     const type = searchParams.type;
@@ -47,7 +45,6 @@ export default async function Home({
     const year = Number(yearParam) || 2024;
     const selectedParty = Array.isArray(partyParam) ? partyParam[0] : (partyParam || 'MDB');
 
-    // Page title and description based on view type
     const pageInfo = {
       'uf': {
         title: 'Gastos por Estado',

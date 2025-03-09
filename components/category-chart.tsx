@@ -7,13 +7,10 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recha
 import { CategoryChartProps } from '@/types';
 
 function CategoryChart({ data, party, year }: CategoryChartProps) {
-    // Filtra os dados para o ano e partido selecionados
     const filteredData = data.filter(item => {
-        // Aqui você deve adicionar a lógica para filtrar por ano, se necessário
-        return true; // Temporariamente retornando true para todos os dados
+        return true; 
     });
 
-    // Remove duplicatas e soma os valores das categorias iguais
     const aggregatedData = filteredData.reduce((acc, item) => {
         const existingItem = acc.find(i => i.expense_category === item.expense_category);
         if (existingItem) {
@@ -24,7 +21,6 @@ function CategoryChart({ data, party, year }: CategoryChartProps) {
         return acc;
     }, [] as { expense_category: string; amount: string }[]);
 
-    // Prepara os dados para o gráfico
     const chartData = aggregatedData
         .map((item) => ({
             name: item.expense_category,

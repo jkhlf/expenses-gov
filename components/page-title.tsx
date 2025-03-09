@@ -1,8 +1,4 @@
-interface PageTitleProps {
-  title: string;
-  description?: string;
-  year: number;
-}
+import { PageTitleProps } from "@/types";
 
 export default function PageTitle({ title, description, year }: PageTitleProps) {
   return (

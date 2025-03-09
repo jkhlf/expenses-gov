@@ -10,12 +10,10 @@ interface HeaderStatsProps {
 }
 
 export default function HeaderStats({ ufData, partyData, year, totalSenators = 81 }: HeaderStatsProps) {
-  // Calculate total expenses for the selected year
   const currentYearUfData = ufData?.find(item => Number(item.year) === year)?.data || [];
   const totalExpenses = currentYearUfData.reduce((sum, item) => sum + item.total_expenses, 0);
   
-  // Format currency
-  const formatCurrency = (value: number) => 
+    const formatCurrency = (value: number) => 
     new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 
   return (

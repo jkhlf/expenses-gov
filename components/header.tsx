@@ -20,7 +20,6 @@ function Header({ year }: { year: number }) {
     return params.toString();
   };
 
-  // Get current view type
   const currentViewType = searchParams.get('type') || 'uf';
 
   // Navigation items configuration
