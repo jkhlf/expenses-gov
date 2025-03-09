@@ -8,11 +8,9 @@ export default function SenatorList({ data }: SenatorListProps) {
   const [filterParty, setFilterParty] = useState("");
   const [filterUF, setFilterUF] = useState("");
   
-  // Get unique parties and UFs for filters
   const uniqueParties = Array.from(new Set(data.map(senator => senator.party)));
   const uniqueUFs = Array.from(new Set(data.map(senator => senator.UF)));
 
-  // Filter senators based on search term and filters
   const filteredSenators = data.filter(senator => {
     const matchesSearch = 
       senator.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -25,16 +23,16 @@ export default function SenatorList({ data }: SenatorListProps) {
   });
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-6 text-center">Lista de Senadores</h2>
+    <div className='container mx-auto px-4 py-8'>
+      <h2 className="text-2xl font-bold my-4 text-center">Lista de Senadores</h2>
       
       {/* Search and filter controls */}
       <div className="mb-6 space-y-4">
-        <div className="relative">
+        <div className="relative flex justify-center">
           <input
             type="text"
             placeholder="Buscar por nome..."
-            className="w-full px-4 py-2 border rounded-md"
+            className="w-96 p-3 border rounded-md"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -42,7 +40,7 @@ export default function SenatorList({ data }: SenatorListProps) {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="text-sm text-gray-500 mb-1 block">Partido</label>
+            <label className="text-sm text-gray-500 mb-1 block ">Partido</label>
             <select 
               className="w-full px-4 py-2 border rounded-md"
               value={filterParty}
@@ -107,11 +105,6 @@ export default function SenatorList({ data }: SenatorListProps) {
                 <p><span className="font-semibold">UF:</span> {senator.UF}</p>
                 <p><span className="font-semibold">Gênero:</span> {senator.gender}</p>
                 <p><span className="font-semibold">Ativo: </span>{senator.is_active ? 'Sim' : 'Não'}</p>
-              </div>
-
-              {/* Email */}
-              <div className="text-sm text-center text-gray-600 mb-4">
-                <p><span className="font-semibold">Email:</span> <a href={`mailto:${senator.email}`} className="text-blue-500 underline">{senator.email}</a></p>
               </div>
 
               {/* Botão para Homepage */}

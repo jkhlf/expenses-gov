@@ -1,20 +1,12 @@
 'use client';
 
 import { UfChartProps, PartyChartProps } from "@/types";
-
-interface StatsRowProps {
-  ufData?: UfChartProps['data'];
-  partyData?: PartyChartProps['data'];
-  year: number;
-  totalSenators?: number;
-}
+import type { StatsRowProps} from "@/types";
 
 export default function StatsRow({ ufData, partyData, year, totalSenators = 81 }: StatsRowProps) {
-  // Calculate total expenses for the selected year
   const currentYearUfData = ufData?.find(item => Number(item.year) === year)?.data || [];
   const totalExpenses = currentYearUfData.reduce((sum, item) => sum + item.total_expenses, 0);
   
-  // Format currency
   const formatCurrency = (value: number) => 
     new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 

@@ -1,6 +1,3 @@
-/**
- * Custom fetcher function for SWR
- */
 export const fetcher = async (url: string) => {
   const res = await fetch(url);
   

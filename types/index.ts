@@ -10,6 +10,19 @@ export type PartyChartProps = {
     }[];
   }
 
+  export type StatsRowProps = {
+    ufData?: UfChartProps['data'];
+    partyData?: PartyChartProps['data'];
+    year: number;
+    totalSenators?: number;
+  }
+  
+  export type PageTitleProps = {
+    title: string;
+    description?: string;
+    year: number;
+  }
+
 export type UfChartProps = {
     year?: number,
     data: {
